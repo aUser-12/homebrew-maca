@@ -8,6 +8,9 @@ import re
 import argparse
 import time
 
+if os.geteuid() != 0:
+    print("Use sudo", file=sys.stderr)
+    sys.exit(1)
 
 SCRIPT_NAME = os.path.basename(sys.argv[0])
 INTERFACE = "en0"  #macos default sometimes en1
